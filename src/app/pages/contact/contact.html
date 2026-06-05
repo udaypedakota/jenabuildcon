@@ -1,0 +1,114 @@
+<!-- Page Hero -->
+<div class="page-hero">
+  <div class="page-hero-content">
+    <h1>C O N T A C T &nbsp;<span>U S</span></h1>
+    <p class="breadcrumb"><a routerLink="/">Home</a> <span>/</span> Contact</p>
+  </div>
+</div>
+
+<section class="contact-section section-pad">
+  <div class="container">
+    <div class="contact-grid">
+      <!-- Info -->
+      <div class="contact-info">
+        <p class="section-tag">Get In Touch</p>
+        <div class="gold-line-left"></div>
+        <h2>Let's Start a <span class="gold-text">Conversation</span></h2>
+        <p class="contact-intro">
+          Whether you're looking for your dream home, a premium plot, or want to learn
+          more about our upcoming projects — we're here to help.
+        </p>
+
+        <div class="info-cards">
+          <div class="info-card">
+            <div class="info-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div class="info-card-text">
+              <h4>Office</h4>
+              <p>Plot No. 362/3855, 1st Floor, Goutam Nagar,<br>
+                Opposite Old B.M.C Office,<br>Bhubaneswar - 751014</p>
+              <br>
+              <p>Plot No. 220/184, Gandhi Nagar, 3rd Lane,<br>Berhampur - 760001</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 13.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 2.84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 10.9a16 16 0 006 6l1.22-1.22a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 17z"/>
+              </svg>
+            </div>
+            <div class="info-card-text">
+              <h4>Call Us</h4>
+              <a href="tel:+918338860111">+91 8338860111</a>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div class="info-card-text">
+              <h4>Email</h4>
+              <a href="mailto:sales@jenabuildcon.com">sales&#64;jenabuildcon.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="contact-form-wrap">
+        <div class="form-header">
+          <h3>Send Us a Message</h3>
+          <p>Fill out the form and we'll get back to you within 24 hours.</p>
+        </div>
+
+        <div class="success-msg" *ngIf="submitted">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24"><polyline points="20 6 9 17 4 12"/></svg>
+          Thank you! We'll contact you shortly.
+        </div>
+
+        <form (ngSubmit)="onSubmit()" #contactForm="ngForm" *ngIf="!submitted">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" [(ngModel)]="form.name" required placeholder="Your full name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" [(ngModel)]="form.email" required placeholder="your@email.com">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" [(ngModel)]="form.phone" required placeholder="+91 XXXXX XXXXX">
+            </div>
+            <div class="form-group">
+              <label for="interest">Interested In</label>
+              <select id="interest" name="interest" [(ngModel)]="form.interest">
+                <option value="">Select project type</option>
+                <option value="residential-plots">Residential Plots</option>
+                <option value="villas">Villas</option>
+                <option value="ongoing">Ongoing Projects</option>
+                <option value="upcoming">Upcoming Projects</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" [(ngModel)]="form.message" rows="5" placeholder="Tell us about your requirements..."></textarea>
+          </div>
+          <button type="submit" class="btn-gold" style="width:100%">
+            <span>Submit Enquiry</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

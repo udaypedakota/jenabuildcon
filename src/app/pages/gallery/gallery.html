@@ -1,0 +1,59 @@
+<!-- Page Hero -->
+<div class="page-hero">
+  <div class="page-hero-content">
+    <h1>G A L L <span>E R Y</span></h1>
+    <p class="breadcrumb"><a routerLink="/">Home</a> <span>/</span> Gallery</p>
+  </div>
+</div>
+
+<!-- Gallery -->
+<section class="gallery-section section-pad">
+  <div class="container">
+    <!-- Filters -->
+    <div class="gallery-filters">
+      <button *ngFor="let f of filters"
+              class="filter-btn"
+              [class.active]="activeFilter === f"
+              (click)="setFilter(f)">
+        {{ f | titlecase }}
+      </button>
+    </div>
+
+    <!-- Grid -->
+    <div class="gallery-grid">
+      <div class="gallery-item"
+           *ngFor="let img of filteredImages; let i = index"
+           (click)="openLightbox(i)">
+        <img [src]="img.thumb" [alt]="img.alt" loading="lazy">
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              <line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
+            </svg>
+          </div>
+          <span class="gallery-item-label">{{ img.alt }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" [class.open]="lightboxOpen" (click)="closeLightbox()">
+  <div class="lightbox-inner" (click)="$event.stopPropagation()">
+    <button class="lb-close" (click)="closeLightbox()" aria-label="Close lightbox">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+    <button class="lb-nav prev" (click)="lightboxPrev()" aria-label="Previous image">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <img [src]="lightboxImage" alt="Gallery image" class="lb-img">
+    <button class="lb-nav next" (click)="lightboxNext()" aria-label="Next image">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+    <div class="lb-counter">{{ lightboxIndex + 1 }} / {{ filteredImages.length }}</div>
+  </div>
+</div>

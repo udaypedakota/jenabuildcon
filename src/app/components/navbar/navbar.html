@@ -1,0 +1,58 @@
+<nav class="navbar" [class.scrolled]="scrolled" [class.menu-open]="menuOpen">
+  <div class="nav-container">
+    <!-- Logo -->
+    <a routerLink="/" class="nav-logo" (click)="closeMenu()">
+      <span class="logo-text">JENABUILDCON</span>
+      <span class="logo-sub">Prime Developers</span>
+    </a>
+
+    <!-- Desktop Menu -->
+    <ul class="nav-links">
+      <li>
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-link-animated">Home</a>
+      </li>
+      <li>
+        <a routerLink="/about" routerLinkActive="active" class="nav-link-animated">About Us</a>
+      </li>
+      <li class="has-dropdown">
+        <a href="#" class="nav-link-animated" (click)="toggleProjects($event)">
+          Projects <i class="arrow">&#x25BE;</i>
+        </a>
+        <ul class="dropdown" [class.open]="projectsOpen">
+          <li><a routerLink="/ongoing-projects" (click)="closeMenu()">Ongoing Projects</a></li>
+          <li><a routerLink="/past-projects" (click)="closeMenu()">Past Projects</a></li>
+          <li><a routerLink="/" (click)="closeMenu()">Upcoming Projects</a></li>
+        </ul>
+      </li>
+      <li>
+        <a routerLink="/gallery" routerLinkActive="active" class="nav-link-animated">Gallery</a>
+      </li>
+      <li>
+        <a routerLink="/broker-registration" routerLinkActive="active" class="nav-link-animated">Broker Registration</a>
+      </li>
+      <li>
+        <a routerLink="/contact" class="btn-gold"><span>Quick Enquiry</span></a>
+      </li>
+    </ul>
+
+    <!-- Hamburger -->
+    <button class="hamburger" (click)="toggleMenu()" [class.active]="menuOpen" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" [class.open]="menuOpen">
+    <ul>
+      <li><a routerLink="/" (click)="closeMenu()">Home</a></li>
+      <li><a routerLink="/about" (click)="closeMenu()">About Us</a></li>
+      <li><a routerLink="/ongoing-projects" (click)="closeMenu()">Ongoing Projects</a></li>
+      <li><a routerLink="/past-projects" (click)="closeMenu()">Past Projects</a></li>
+      <li><a routerLink="/gallery" (click)="closeMenu()">Gallery</a></li>
+      <li><a routerLink="/broker-registration" (click)="closeMenu()">Broker Registration</a></li>
+      <li><a routerLink="/contact" (click)="closeMenu()" class="mobile-enquiry">Quick Enquiry</a></li>
+    </ul>
+  </div>
+</nav>

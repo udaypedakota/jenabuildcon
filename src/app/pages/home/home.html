@@ -1,0 +1,312 @@
+<!-- ===== HERO SECTION ===== -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-overlay"></div>
+    <div class="hero-particles">
+      <span *ngFor="let p of [1,2,3,4,5,6,7,8,9,10,11,12]" class="particle" [class]="'p-' + p"></span>
+    </div>
+  </div>
+
+  <div class="hero-content" *ngFor="let slide of heroSlides; let i = index" [class.active]="i === currentSlide">
+    <div class="hero-inner">
+      <div class="hero-tag animate-in">
+        <span class="tag-line"></span>
+        {{ slide.tag }}
+        <span class="tag-line"></span>
+      </div>
+      <h1 class="hero-title animate-in delay-1">
+        {{ slide.title }}<br>
+        <span class="spaced-text">{{ slide.titleAccent }}</span>
+      </h1>
+      <p class="hero-subtitle animate-in delay-2">{{ slide.subtitle }}</p>
+      <div class="hero-actions animate-in delay-3">
+        <a routerLink="/contact" class="btn-gold"><span>Quick Enquiry</span></a>
+        <a routerLink="/ongoing-projects" class="btn-outline">View Projects</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide Controls -->
+  <div class="hero-controls">
+    <button class="slide-btn prev" (click)="prevSlide()" aria-label="Previous slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </button>
+    <div class="slide-dots">
+      <button *ngFor="let s of heroSlides; let i = index"
+              class="dot"
+              [class.active]="i === currentSlide"
+              (click)="goToSlide(i)"
+              [attr.aria-label]="'Go to slide ' + (i+1)">
+      </button>
+    </div>
+    <button class="slide-btn next" (click)="nextSlide()" aria-label="Next slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Social sidebar -->
+  <div class="hero-social">
+    <span class="follow-text">Follow Us</span>
+    <div class="social-links">
+      <a href="#" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+      </a>
+      <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line">
+      <div class="scroll-dot"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT SECTION ===== -->
+<section class="about-section section-pad">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image-wrap">
+        <div class="about-img-frame">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80"
+               alt="Luxury property" loading="lazy">
+          <div class="img-badge">
+            <span class="badge-num">25+</span>
+            <span class="badge-txt">Years of<br>Excellence</span>
+          </div>
+        </div>
+        <div class="about-img-secondary">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=300&q=80"
+               alt="Modern interior" loading="lazy">
+        </div>
+      </div>
+      <div class="about-content">
+        <p class="section-tag">About Us</p>
+        <div class="gold-line-left"></div>
+        <h2>Creating Spaces.<br><span class="gold-text">Enriching Lives.</span></h2>
+        <p class="about-text">
+          From our earliest projects to our most ambitious developments today, we have
+          remained committed to a singular vision: to redefine urban living through
+          innovation, thoughtful design, and uncompromising quality.
+        </p>
+        <p class="about-text">
+          We have always understood that real estate is not merely about land or
+          buildings—it's about people. It's about the families who build their lives in our homes,
+          the businesses that grow in our spaces, and the communities that thrive around them.
+        </p>
+        <p class="about-text">
+          As promoters, our promise is clear: to stay rooted in our values, to ensure that
+          the spaces we create continue to enrich lives for generations to come.
+        </p>
+        <a routerLink="/about" class="btn-gold" style="margin-top: 16px"><span>Learn More</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS SECTION ===== -->
+<section class="stats-section">
+  <div class="stats-bg"></div>
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card" *ngFor="let stat of stats; let i = index" [style.animation-delay]="(i * 0.15) + 's'">
+        <div class="stat-icon">
+          <div class="stat-ring"></div>
+        </div>
+        <div class="stat-value">{{ stat.value }}</div>
+        <div class="stat-label">{{ stat.label }}</div>
+        <p class="stat-desc">{{ stat.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VISION SECTION ===== -->
+<section class="vision-section section-pad">
+  <div class="container">
+    <div class="vision-content">
+      <p class="section-tag">Our Vision</p>
+      <div class="gold-line"></div>
+      <h2>Creating Landmarks,<br><span class="gold-text">Enriching Lives</span></h2>
+      <p class="vision-text">
+        Our vision is to shape the future of modern living by crafting spaces that go
+        beyond just homes—they become legacies. We believe in building not just
+        structures, but thriving communities where people feel connected, inspired, and empowered.
+        Through innovative design, superior craftsmanship, and a deep commitment to
+        sustainability, we strive to create homes that elevate lifestyles and stand the
+        test of time.
+      </p>
+      <div class="vision-features">
+        <div class="vision-feat">
+          <div class="feat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </div>
+          <span>Premium Homes</span>
+        </div>
+        <div class="vision-feat">
+          <div class="feat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <span>On-Time Delivery</span>
+        </div>
+        <div class="vision-feat">
+          <div class="feat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <span>Legal Transparency</span>
+        </div>
+        <div class="vision-feat">
+          <div class="feat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+              <path d="M16 3.13a4 4 0 010 7.75"/>
+            </svg>
+          </div>
+          <span>Customer First</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROJECTS PREVIEW ===== -->
+<section class="projects-preview section-pad">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-tag">Our Projects</p>
+      <div class="gold-line"></div>
+      <h2>Landmark <span class="gold-text">Developments</span></h2>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card featured">
+        <div class="project-img">
+          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=80" alt="Niladri Heritage" loading="lazy">
+          <div class="project-overlay">
+            <span class="project-status ongoing">Ongoing</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>Niladri Heritage</h3>
+          <p>Premium residential plots in the heart of Puri, designed for luxury living with modern amenities.</p>
+          <a routerLink="/ongoing-projects" class="project-link">
+            View Details
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img">
+          <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=500&q=80" alt="Luxury Villa" loading="lazy">
+          <div class="project-overlay">
+            <span class="project-status past">Completed</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>Saptagiri Residency</h3>
+          <p>Modern villas crafted with premium materials and exceptional attention to detail.</p>
+          <a routerLink="/past-projects" class="project-link">
+            View Details
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img">
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=500&q=80" alt="Elite Plots" loading="lazy">
+          <div class="project-overlay">
+            <span class="project-status upcoming">Upcoming</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>Elite Gardens</h3>
+          <p>An upcoming luxury township with world-class amenities and green spaces.</p>
+          <a routerLink="/" class="project-link">
+            Coming Soon
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="section-cta">
+      <a routerLink="/ongoing-projects" class="btn-outline">View All Projects</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="testimonials-section section-pad">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-tag">Testimonials</p>
+      <div class="gold-line"></div>
+      <h2>What Our <span class="gold-text">Clients Say</span></h2>
+    </div>
+    <div class="testimonials-wrapper">
+      <div class="testimonials-track">
+        <div class="testimonial-card"
+             *ngFor="let t of testimonials; let i = index"
+             [class.active]="i === currentTestimonial"
+             [class.prev]="i === (currentTestimonial - 1 + testimonials.length) % testimonials.length"
+             [class.next]="i === (currentTestimonial + 1) % testimonials.length">
+          <div class="quote-icon">&#8220;</div>
+          <p class="testimonial-text">{{ t.text }}</p>
+          <div class="stars">
+            <span *ngFor="let s of getStars(t.rating)" class="star">&#9733;</span>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">{{ t.name.charAt(0) }}</div>
+            <div>
+              <strong>{{ t.name }}</strong>
+              <span>{{ t.role }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-dots">
+        <button *ngFor="let t of testimonials; let i = index"
+                class="dot"
+                [class.active]="i === currentTestimonial"
+                (click)="goToTestimonial(i)"
+                [attr.aria-label]="'Testimonial ' + (i+1)">
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA SECTION ===== -->
+<section class="cta-section">
+  <div class="cta-bg"></div>
+  <div class="container">
+    <div class="cta-content">
+      <p class="section-tag">Get In Touch</p>
+      <h2>Ready to Find Your<br><span class="gold-text">Dream Home?</span></h2>
+      <p>Reach out to us today and let our experts guide you to the perfect property.</p>
+      <div class="cta-actions">
+        <a routerLink="/contact" class="btn-gold"><span>Quick Enquiry</span></a>
+        <a href="tel:+918338860111" class="btn-outline">Call Us Now</a>
+      </div>
+    </div>
+  </div>
+</section>

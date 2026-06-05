@@ -1,0 +1,61 @@
+<!-- Page Hero -->
+<div class="page-hero">
+  <div class="page-hero-content">
+    <h1>{{ pageTitle }}</h1>
+    <p class="breadcrumb">
+      <a routerLink="/">Home</a>
+      <span>/</span>
+      {{ projectType === 'ongoing' ? 'Ongoing Projects' : 'Past Projects' }}
+    </p>
+  </div>
+</div>
+
+<!-- Projects List -->
+<section class="projects-section section-pad">
+  <div class="container">
+    <!-- Tab switcher -->
+    <div class="project-tabs">
+      <a routerLink="/ongoing-projects" class="tab-btn" [class.active]="projectType === 'ongoing'">
+        Ongoing Projects
+      </a>
+      <a routerLink="/past-projects" class="tab-btn" [class.active]="projectType === 'past'">
+        Past Projects
+      </a>
+      <a routerLink="/" class="tab-btn">
+        Upcoming Projects
+      </a>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="projects-list">
+      <div class="project-detail-card" *ngFor="let p of projects; let i = index" [class.reversed]="i % 2 !== 0">
+        <div class="pd-image">
+          <img [src]="p.image" [alt]="p.name" loading="lazy">
+          <div class="pd-status" [class.ongoing]="p.status === 'Ongoing'" [class.completed]="p.status === 'Completed'">
+            {{ p.status }}
+          </div>
+        </div>
+        <div class="pd-content">
+          <p class="section-tag">{{ p.type }}</p>
+          <div class="gold-line-left"></div>
+          <h2>{{ p.name }}</h2>
+          <div class="pd-meta">
+            <span class="pd-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              {{ p.location }}
+            </span>
+            <span class="pd-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+              {{ p.area }}
+            </span>
+          </div>
+          <p class="pd-desc">{{ p.desc }}</p>
+          <div class="pd-amenities">
+            <span class="amenity-tag" *ngFor="let a of p.amenities">{{ a }}</span>
+          </div>
+          <a routerLink="/contact" class="btn-gold" style="margin-top: 28px"><span>Enquire Now</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

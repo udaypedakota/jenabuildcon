@@ -1,0 +1,98 @@
+<!-- Page Hero -->
+<div class="page-hero">
+  <div class="page-hero-content">
+    <h1>BROKER <span>REGISTRATION</span></h1>
+    <p class="breadcrumb"><a routerLink="/">Home</a> <span>/</span> Broker Registration</p>
+  </div>
+</div>
+
+<!-- Benefits -->
+<section class="broker-benefits section-pad">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-tag">Partner With Us</p>
+      <div class="gold-line"></div>
+      <h2>Why Partner With <span class="gold-text">Jenabuildcon?</span></h2>
+      <p class="section-desc">Join our growing network of real estate professionals and unlock exclusive benefits.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card" *ngFor="let b of benefits">
+        <div class="benefit-emoji">{{ b.icon }}</div>
+        <h4>{{ b.title }}</h4>
+        <p>{{ b.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Registration Form -->
+<section class="registration-section section-pad" style="background: var(--dark-2)">
+  <div class="container">
+    <div class="reg-wrap">
+      <div class="reg-header">
+        <p class="section-tag">Register Now</p>
+        <div class="gold-line-left"></div>
+        <h2>Become a <span class="gold-text">Channel Partner</span></h2>
+        <p>Fill in your details and our team will get in touch with you within 24 hours.</p>
+      </div>
+
+      <div class="success-msg" *ngIf="submitted">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24"><polyline points="20 6 9 17 4 12"/></svg>
+        Registration successful! We'll reach out to you shortly.
+      </div>
+
+      <form class="reg-form" (ngSubmit)="onSubmit()" *ngIf="!submitted">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" [(ngModel)]="form.name" name="name" required placeholder="Your full name">
+          </div>
+          <div class="form-group">
+            <label>Email Address *</label>
+            <input type="email" [(ngModel)]="form.email" name="email" required placeholder="your@email.com">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" [(ngModel)]="form.phone" name="phone" required placeholder="+91 XXXXX XXXXX">
+          </div>
+          <div class="form-group">
+            <label>Company / Agency Name</label>
+            <input type="text" [(ngModel)]="form.company" name="company" placeholder="Your company name">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>RERA Registration Number</label>
+            <input type="text" [(ngModel)]="form.rera" name="rera" placeholder="RERA number (if applicable)">
+          </div>
+          <div class="form-group">
+            <label>City *</label>
+            <input type="text" [(ngModel)]="form.city" name="city" required placeholder="Your city">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Years of Experience</label>
+            <select [(ngModel)]="form.experience" name="experience">
+              <option value="">Select experience</option>
+              <option>Less than 1 year</option>
+              <option>1 - 3 years</option>
+              <option>3 - 5 years</option>
+              <option>5 - 10 years</option>
+              <option>10+ years</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Additional Message</label>
+            <input type="text" [(ngModel)]="form.message" name="message" placeholder="Anything else to share?">
+          </div>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn-gold btn-full"><span>Submit Registration</span></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

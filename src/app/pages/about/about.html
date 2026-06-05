@@ -1,0 +1,131 @@
+<!-- Page Hero -->
+<div class="page-hero">
+  <div class="page-hero-content">
+    <h1>A B O U T &nbsp; <span>G R O U P</span></h1>
+    <p class="breadcrumb"><a routerLink="/">Home</a> <span>/</span> About Us</p>
+  </div>
+</div>
+
+<!-- About Intro -->
+<section class="about-intro section-pad">
+  <div class="container">
+    <div class="intro-grid">
+      <div class="intro-text">
+        <p class="section-tag">Who We Are</p>
+        <div class="gold-line-left"></div>
+        <h2>Expertise in <span class="gold-text">Puri & Beyond</span></h2>
+        <p>
+          Jenabuildcon Prime Developers is one of Odisha's most trusted real estate developers.
+          With over 25 years of experience, we have transformed thousands of acres of land
+          into premium residential communities that stand as landmarks of quality and trust.
+        </p>
+        <p>
+          Our journey began with a simple belief — that every family deserves a home built
+          with integrity, craftsmanship, and care. Today, that belief drives every project
+          we undertake, from plotting to luxury villas.
+        </p>
+
+        <div class="about-highlights">
+          <div class="highlight-item">
+            <span class="h-value">25+</span>
+            <span class="h-label">Years Experience</span>
+          </div>
+          <div class="highlight-item">
+            <span class="h-value">17500+</span>
+            <span class="h-label">Acres Developed</span>
+          </div>
+          <div class="highlight-item">
+            <span class="h-value">75000+</span>
+            <span class="h-label">Happy Owners</span>
+          </div>
+        </div>
+      </div>
+      <div class="intro-image">
+        <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80" alt="Our offices" loading="lazy">
+        <div class="intro-img-accent"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Vision -->
+<section class="vision-about section-pad" style="background: var(--dark-2)">
+  <div class="container">
+    <div class="vision-grid">
+      <div class="vision-img">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Luxury home" loading="lazy">
+      </div>
+      <div class="vision-text-block">
+        <p class="section-tag">Our Vision</p>
+        <div class="gold-line-left"></div>
+        <h2>Creating Landmarks,<br><span class="gold-text">Enriching Lives</span></h2>
+        <p>
+          Our vision is to shape the future of modern living by crafting spaces that go
+          beyond just homes—they become legacies. We believe in building not just
+          structures, but thriving communities where people feel connected, inspired, and empowered.
+        </p>
+        <p>
+          Through innovative design, superior craftsmanship, and a deep commitment to
+          sustainability, we strive to create homes that elevate lifestyles and stand the
+          test of time. Our goal is to deliver excellence at every step, ensuring that every
+          Jenabuildcon home becomes a symbol of trust, quality, and enduring value.
+        </p>
+        <div class="vision-points">
+          <div class="vp-item">
+            <div class="vp-dot"></div>
+            <span>Innovative design & architecture</span>
+          </div>
+          <div class="vp-item">
+            <div class="vp-dot"></div>
+            <span>Commitment to quality and sustainability</span>
+          </div>
+          <div class="vp-item">
+            <div class="vp-dot"></div>
+            <span>Transparent & customer-first approach</span>
+          </div>
+          <div class="vp-item">
+            <div class="vp-dot"></div>
+            <span>On-time project delivery</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Values -->
+<section class="values-section section-pad">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-tag">Our Values</p>
+      <div class="gold-line"></div>
+      <h2>What We <span class="gold-text">Stand For</span></h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card" *ngFor="let v of values">
+        <div class="value-icon" [innerHTML]="v.icon"></div>
+        <h3>{{ v.title }}</h3>
+        <p>{{ v.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team -->
+<section class="team-section section-pad" style="background: var(--dark-2)">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-tag">Leadership</p>
+      <div class="gold-line"></div>
+      <h2>Our <span class="gold-text">Leadership Team</span></h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card" *ngFor="let m of team">
+        <div class="team-avatar">{{ m.name.charAt(0) }}</div>
+        <h4>{{ m.name }}</h4>
+        <span class="team-role">{{ m.role }}</span>
+        <p>{{ m.bio }}</p>
+      </div>
+    </div>
+  </div>
+</section>
